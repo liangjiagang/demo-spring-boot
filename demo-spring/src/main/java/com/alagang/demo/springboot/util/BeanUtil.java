@@ -30,6 +30,28 @@ public class BeanUtil {
         return ReflectionUtils.invokeMethod(method, bean, args);
     }
 
+    public Object getBeanMethodDatabyClassName(String className, String methodName, Object... args) {
+
+        Class beanClass = null;
+        try {
+            beanClass = Class.forName(className);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Object bean = applicationContext.getBean(beanClass);
+        Assert.notNull(bean,className+":Bean must not be null");
+        Method[] methods = bean.getClass().getDeclaredMethods();
+        Method method = null;
+        for (Method m : methods) {
+            if (m.getName().equals(methodName)) {
+                method = m;
+                break;
+            }
+        }
+        Assert.notNull(method, className + ":" + methodName + ":Method must not be null");
+        return ReflectionUtils.invokeMethod(method, bean, args);
+    }
+
 
     public void printResultAsList(Object result) {
         if (result instanceof List) {

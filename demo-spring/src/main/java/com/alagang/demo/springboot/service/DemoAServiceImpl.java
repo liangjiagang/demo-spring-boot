@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class DemoAServiceImpl {
+public class DemoAServiceImpl implements DemoAService{
 
     @Resource
     private DemoAMapper demoAMapper;
@@ -17,7 +17,8 @@ public class DemoAServiceImpl {
     }
 
     public String addServiceB(){
-        demoAMapper.addB();
+        demoAMapper.addB("2222");
+        //int a = 1/0;
         return "BBBBBBB";
     }
 }

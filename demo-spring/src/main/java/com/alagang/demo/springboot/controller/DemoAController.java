@@ -25,9 +25,9 @@ public class DemoAController {
     @GetMapping("/demo/a")
     @Transactional(rollbackFor = Exception.class)
     public String demoA(){
-        beanUtil.getBeanMethodData("demoAServiceImpl","addServiceA");
+        beanUtil.getBeanMethodDatabyClassName("com.alagang.demo.springboot.service.DemoAServiceImpl","addServiceA");
 
-        beanUtil.getBeanMethodData("demoAServiceImpl","addServiceB");
+        beanUtil.getBeanMethodDatabyClassName("com.alagang.demo.springboot.service.DemoAServiceImpl","addServiceB");
 
         //int a = 1/0;
 
