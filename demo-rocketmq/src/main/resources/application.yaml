@@ -16,8 +16,6 @@ server:
       # Tomcat启动初始化的线程数，默认值10
       min-spare: 100
 rocketmq:
-  name-server: 172.20.10.2:9876
+  name-server: 192.168.31.82:9876
   producer:
-    group: my-group
-  consumer:
     group: my-group
