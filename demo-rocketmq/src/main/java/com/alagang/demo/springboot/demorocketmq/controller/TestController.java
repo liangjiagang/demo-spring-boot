@@ -63,6 +63,14 @@ public class TestController {
     }
 
 
+    @GetMapping("test3")
+    public String test3(){
+        String springTopic = "topic-test3";
+        // 发送消息并且指定tag
+        SendResult sendResult = rocketMQTemplate.syncSend(springTopic + ":tag0", "Hello, World! tag0!");
+        System.out.printf("syncSend1 to topic %s sendResult=%s %n", springTopic, sendResult);
+        return "ok";
+    }
 
 
 
